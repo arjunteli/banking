@@ -3,8 +3,9 @@ package app
 import (
 	"encoding/json"
 	"encoding/xml"
-	"fmt"
 	"net/http"
+
+	"github.com/go-delve/delve/service"
 )
 
 type Customer struct {
@@ -13,11 +14,11 @@ type Customer struct {
 	ZipCode string `json:"cutomer_zip_code" xml:"zipcode"`
 }
 
-func greet(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello, world!")
+type CustomerHandlers struct {
+	service service.CustomerService
 }
 
-func getAllCustomer(w http.ResponseWriter, r *http.Request) {
+func (ch *CustomerHandlers)getAllCustomer(w http.ResponseWriter, r *http.Request) {
 	Customers := []Customer{
 		{"Arjun Teli", "Bari-Sadri", "312403"},
 		{"Karan Teli", "Udaipur", "312403"},

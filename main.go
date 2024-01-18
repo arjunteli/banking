@@ -1,6 +1,6 @@
 package main
 
-import "C/Users/Lenovo/OneDrive/Desktop/banking/app"
+import "github.com/arjunteli/banking/app"
 
 func main() {
 	app.Start()

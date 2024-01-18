@@ -1,3 +1,5 @@
-module C/Users/Lenovo/OneDrive/Desktop/banking
+module github.com/arjunteli/banking
 
 go 1.21.6
+
+require github.com/gorilla/mux v1.8.1
