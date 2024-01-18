@@ -1,4 +1,4 @@
-package servive
+package service
 
 import "github.com/arjunteli/banking/domain"
 
@@ -20,7 +20,7 @@ type DefaultCustomerService struct {
 
 // The `func (s DefaultCustomerService) getAllCustomer() ([]domain.Customer, error)` is a method of the
 // `DefaultCustomerService` struct that implements the `CustomerService` interface.
-func (s DefaultCustomerService) getAllCustomer() ([]domain.Customer, error) {
+func (s DefaultCustomerService) GetAllCustomer() ([]domain.Customer, error) {
 	return s.repo.FindAll()
 }
 

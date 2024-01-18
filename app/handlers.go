@@ -5,7 +5,7 @@ import (
 	"encoding/xml"
 	"net/http"
 
-	"github.com/go-delve/delve/service"
+	"github.com/arjunteli/banking/service"
 )
 
 type Customer struct {
@@ -18,18 +18,21 @@ type CustomerHandlers struct {
 	service service.CustomerService
 }
 
-func (ch *CustomerHandlers)getAllCustomer(w http.ResponseWriter, r *http.Request) {
-	Customers := []Customer{
-		{"Arjun Teli", "Bari-Sadri", "312403"},
-		{"Karan Teli", "Udaipur", "312403"},
-		{"Bhailu Teli", "Ahmedabad", "312403"},
-	}
+func (ch *CustomerHandlers) getAllCustomer(w http.ResponseWriter, r *http.Request) {
+	// Customers := []Customer{
+	// 	{"Arjun Teli", "Bari-Sadri", "312403"},
+	// 	{"Karan Teli", "Udaipur", "312403"},
+	// 	{"Bhailu Teli", "Ahmedabad", "312403"},
+	// }
+
+	customers, _ := ch.service.GetAllCustomer()
+
 	if r.Header.Get("Content-Type") == "application/json" {
 		w.Header().Add("Content-Type", "application/json")
-		json.NewEncoder(w).Encode(Customers)
+		json.NewEncoder(w).Encode(customers)
 
 	} else if r.Header.Get("Content-Type") == "application/xml" {
 		w.Header().Add("Content-Type", "application/xml")
-		xml.NewEncoder(w).Encode(Customers)
+		xml.NewEncoder(w).Encode(customers)
 	}
 }

@@ -31,7 +31,7 @@ func (s CustomerRepositoryStub) FindAll() ([]Customer, error) {
 // helper function responsible for creating new customerRepoStub
 // The function newCustomerRepositoryStub returns a new instance of CustomerRepositoryStub with a
 // predefined list of customers.
-func newCustomerRepositoryStub() CustomerRepositoryStub {
+func NewCustomerRepositoryStub() CustomerRepositoryStub {
 	customers := []Customer{
 		{"1001", "Arjun Teli", "Bari-Sadri", "312403", "11-06-1999", "1"},
 		{"1002", "Karan Teli", "Bari-Sadri", "312403", "11-06-1999", "1"},
