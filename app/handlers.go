@@ -20,7 +20,7 @@ type CustomerHandlers struct {
 
 func (ch *CustomerHandlers) GetAllCustomer(w http.ResponseWriter, r *http.Request) {
 	
-	//customers
+	
 	
 	customers, _ := ch.service.GetAllCustomer()
 
