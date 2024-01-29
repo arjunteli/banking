@@ -19,7 +19,7 @@ func Start() {
 	ch := CustomerHandlers{service.NewCustomerService(domain.NewCustomerRepositoryStub())}
 
 	//define routes
-	router.HandleFunc("/customers", ch.getAllCustomer).Methods(http.MethodGet)
+	router.HandleFunc("/customers", ch.GetAllCustomer).Methods(http.MethodGet)
 
 	//starting http server
 	log.Fatal(http.ListenAndServe("localhost:8080", router))
